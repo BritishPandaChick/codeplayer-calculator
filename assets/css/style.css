@@ -1,0 +1,57 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* Better text styling */
+  font: bold 14px Arial, sans-serif;
+}
+
+/* Using box shadows to create 3D effects */
+#calculator {
+  width: 325px;
+  height: auto;
+  margin: 100px auto;
+  padding: 20px 20px 9px;
+  background: linear-gradient(#9dd2ea, #8bceec);
+  border-radius: 3px;
+  box-shadow: 0px 4px #009de4;
+}
+
+/* Top portion */
+.top span.clear {
+  float: left;
+}
+
+/* Insert shadow on the screen to create indent */
+.top .screen {
+  height: 40px;
+  width: 212px;
+  float: right;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+/* Clear floats */
+.keys {
+  overflow: hidden;
+}
+
+/* Applying same to the keys */
+.keys span, .top span.clear {
+  float: left;
+  width: 66px;
+  height: 36px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+  margin: 0 7px 11px 0;
+  color: #888;
+  line-height: 40px;
+  text-align: center;
+}
+
+/* Remove margins from operator keys */
+span.operator {
+  margin-right: 0;
+}
