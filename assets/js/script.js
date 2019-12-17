@@ -15,17 +15,24 @@ for(var i=0; i < keys.length; i++){
     //If clear key is pressed, erase everything
     if(btnVal == "C"){
       input.innerHTML = "";
+      decimalAdded = false;
     }
+
     //if eval key is pressed, calculate and display the result
-    if(btnVal == '=') {
+    else if(btnVal == '=') {
       var equation = inputVal;
+      var lastChar = equation[equation.length-1];
 
       //replace all instances of x and A with * and / respectively. This can be done easily using regex and the 'g' tag which will replace all instances of the matched character/substring
       equation = equation.replace(/x/g, '*').replace(/Ã·g, '/'/);
 
-      if(equation) {
-        input.innerHTML = eval(equation);
-      }
+      //Final thing to do is checking the last character of the equation. If it's an operator or a decimal, remove it
+      if(operator.indexOf(lastChar) > -1 || lastChar == '.')
+        equation = equation.replace(/.$/, '');
+
+      if(equation)
+      input.innerHTML = eval(equation);
+      decimalAdded = false;
 
       //Basic functionatity of the calculator is complete. But there are problems like
       //1. No two operators should be added consecutively
@@ -50,6 +57,7 @@ for(var i=0; i < keys.length; i++){
           //Here, '.' matches any character while $ denotes the end of string, so anything (will be an operator in this case) at the end of the string will get replaced by new operator
           input.innerHTML = inputVal.replace/.$/, btnVal);
         }
+        decimalAdded = false;
       }
     }
 
@@ -60,10 +68,13 @@ for(var i=0; i < keys.length; i++){
         decimalAdded = true;
       }
     }
-    
+
     //if any other key is pressed, just append it
     else {
       input.innerHTML += btnVal;
+
+      //prevent page jumps
+      e.preventDefault();
     }
   }
 }
