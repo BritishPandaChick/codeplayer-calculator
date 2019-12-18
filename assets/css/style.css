@@ -53,7 +53,7 @@ html {
 }
 
 /* Clear floats */
-.keys .top {
+.keys, .top {
   overflow: hidden;
 }
 
