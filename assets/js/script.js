@@ -61,8 +61,17 @@ for(var i = 0; i < keys.length; i++) {
           input.innerHTML = inputVal.replace(/.$/, btnVal);
         }
         decimalAdded = false;
+      } else if (btnVal == '.') {
+        if(!decimalAdded) {
+          input.innerHTML += btnVal;
+          decimalAdded = true;
+        }
+        //if any other key is pressed, just append it
+      } else {
+        input.innerHTML += btnVal;
+
+        //prevent page jumps
+        e.preventDefault();
       }
-
-
   }
 }
